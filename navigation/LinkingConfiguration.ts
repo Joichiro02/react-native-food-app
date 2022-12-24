@@ -17,27 +17,27 @@ const linking: LinkingOptions<RootStackParamList> = {
                 screens: {
                     ForDeliveryContainer: {
                         screens: {
-                            TabOneScreen: "For Delivery",
+                            ForDeliveryScreen: "For Delivery",
                         },
                     },
                     MenuContainer: {
                         screens: {
-                            TabTwoScreen: "Menu",
+                            MenuScreen: "Menu",
                         },
                     },
                     FlavorsContainer: {
                         screens: {
-                            TabTwoScreen: "Flavors",
+                            FlavorsScreen: "Flavors",
                         },
                     },
                     HistoryContainer: {
                         screens: {
-                            TabTwoScreen: "History",
+                            HistoryScreen: "History",
                         },
                     },
                     AccountContainer: {
                         screens: {
-                            TabTwoScreen: "Account",
+                            AccountScreen: "Account",
                         },
                     },
                 },

@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Foundation } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
     NavigationContainer,
@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Image, Pressable } from "react-native";
+import { ColorSchemeName, Image, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -89,7 +89,7 @@ function RootNavigator() {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-const headerLogo = (navigation: any) => {
+const headerLeft = (navigation: any) => {
     return (
         <Pressable
             onPress={() => navigation.navigate("ForDeliveryContainer")}
@@ -106,6 +106,29 @@ const headerLogo = (navigation: any) => {
                     marginLeft: 10,
                 }}
             />
+        </Pressable>
+    );
+};
+const headerRight = (navigation: any) => {
+    return (
+        <Pressable
+            onPress={() => navigation.navigate("ForDeliveryContainer")}
+            style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+            })}
+        >
+            <View
+                style={{
+                    backgroundColor: "#E6B325",
+                    borderWidth: 0.5,
+                    borderColor: "#61481C",
+                    borderRadius: 3,
+                    marginRight: 20,
+                    paddingHorizontal: 5,
+                }}
+            >
+                <Foundation name="list" size={30} color="" />
+            </View>
         </Pressable>
     );
 };
@@ -127,14 +150,15 @@ function BottomTabNavigator() {
                     navigation,
                 }: RootTabScreenProps<"ForDeliveryContainer">) => ({
                     title: "",
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: () => (
                         <Image
                             source={forDelivery}
                             style={{ height: 30, width: 30, marginTop: 10 }}
                         />
                     ),
                     // headerShown: false,
-                    headerLeft: () => headerLogo(navigation),
+                    headerLeft: () => headerLeft(navigation),
+                    headerRight: () => headerRight(navigation),
                 })}
             />
             <BottomTab.Screen
@@ -144,13 +168,14 @@ function BottomTabNavigator() {
                     navigation,
                 }: RootTabScreenProps<"MenuContainer">) => ({
                     title: "",
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: () => (
                         <Image
                             source={menu}
                             style={{ height: 30, width: 30, marginTop: 10 }}
                         />
                     ),
-                    headerLeft: () => headerLogo(navigation),
+                    headerLeft: () => headerLeft(navigation),
+                    headerRight: () => headerRight(navigation),
                 })}
             />
             <BottomTab.Screen
@@ -160,14 +185,15 @@ function BottomTabNavigator() {
                     navigation,
                 }: RootTabScreenProps<"FlavorsContainer">) => ({
                     title: "",
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: () => (
                         // <TabBarIcon name="code" color={color} />
                         <Image
                             source={flavors}
                             style={{ height: 30, width: 30, marginTop: 10 }}
                         />
                     ),
-                    headerLeft: () => headerLogo(navigation),
+                    headerLeft: () => headerLeft(navigation),
+                    headerRight: () => headerRight(navigation),
                 })}
             />
             <BottomTab.Screen
@@ -177,14 +203,15 @@ function BottomTabNavigator() {
                     navigation,
                 }: RootTabScreenProps<"HistoryContainer">) => ({
                     title: "",
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: () => (
                         // <TabBarIcon name="code" color={color} />
                         <Image
                             source={history}
                             style={{ height: 30, width: 30, marginTop: 10 }}
                         />
                     ),
-                    headerLeft: () => headerLogo(navigation),
+                    headerLeft: () => headerLeft(navigation),
+                    headerRight: () => headerRight(navigation),
                 })}
             />
             <BottomTab.Screen
@@ -194,14 +221,15 @@ function BottomTabNavigator() {
                     navigation,
                 }: RootTabScreenProps<"AccountContainer">) => ({
                     title: "",
-                    tabBarIcon: ({ color }) => (
+                    tabBarIcon: () => (
                         // <TabBarIcon name="code" color={color} />
                         <Image
                             source={account}
                             style={{ height: 30, width: 30, marginTop: 10 }}
                         />
                     ),
-                    headerLeft: () => headerLogo(navigation),
+                    headerLeft: () => headerLeft(navigation),
+                    headerRight: () => headerRight(navigation),
                 })}
             />
         </BottomTab.Navigator>
@@ -211,9 +239,9 @@ function BottomTabNavigator() {
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-    name: React.ComponentProps<typeof FontAwesome>["name"];
-    color: string;
-}) {
-    return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//     name: React.ComponentProps<typeof FontAwesome>["name"];
+//     color: string;
+// }) {
+//     return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+// }
