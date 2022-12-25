@@ -1,7 +1,6 @@
 import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
-//@ts-ignore
 import restoLogo from "../../assets/images/restoLogo.png";
 
 export default function AccountContainer({

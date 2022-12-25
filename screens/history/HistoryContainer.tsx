@@ -5,7 +5,7 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import { OrderItem } from "../../components/orderItem/OrderItem";
+import { OrderItemHistory } from "../../components/orderItem/OrderItemHistory";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 
@@ -60,7 +60,7 @@ export default function HistoryContainer({
             <FlatList
                 style={{ width: "100%" }}
                 data={data}
-                renderItem={({ item }) => <OrderItem />}
+                renderItem={({ item }) => <OrderItemHistory />}
             />
             <View style={styles.buttonContent}>
                 <TouchableOpacity style={styles.btn}>

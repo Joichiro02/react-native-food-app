@@ -29,17 +29,11 @@ import {
     RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
-//@ts-ignore
 import forDelivery from "../assets/images/forDelivery.png";
-//@ts-ignore
 import menu from "../assets/images/menu.png";
-//@ts-ignore
 import flavors from "../assets/images/flavors.png";
-//@ts-ignore
 import history from "../assets/images/history.png";
-//@ts-ignore
 import account from "../assets/images/account.png";
-//@ts-ignore
 import logo from "../assets/images/logo.png";
 
 export default function Navigation({
