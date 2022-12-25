@@ -1,4 +1,6 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { useState } from "react";
+import { Modal, StyleSheet, TouchableOpacity } from "react-native";
+import { EditFlavorModal } from "../../components/modal/EditFlavorModal";
 import { FlavorTable } from "../../components/table/FlavorTable";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
@@ -6,6 +8,7 @@ import { RootTabScreenProps } from "../../types";
 export default function FlavorsContainer({
     navigation,
 }: RootTabScreenProps<"FlavorsContainer">) {
+    const [showModal, setShowModal] = useState(false);
     return (
         <View style={styles.container}>
             <View style={styles.contentHeader}>
@@ -16,7 +19,15 @@ export default function FlavorsContainer({
                     </TouchableOpacity>
                 </View>
             </View>
-            <FlavorTable />
+            <FlavorTable setShowModal={setShowModal} />
+            <Modal
+                transparent={true}
+                animationType="fade"
+                visible={showModal}
+                onRequestClose={() => setShowModal((prev: any) => !prev)}
+            >
+                <EditFlavorModal setShowModal={setShowModal} />
+            </Modal>
         </View>
     );
 }

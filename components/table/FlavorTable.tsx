@@ -8,7 +8,7 @@ interface FlavorsType {
     price: number;
 }
 
-export const FlavorTable = () => {
+export const FlavorTable = ({ setShowModal }: any) => {
     const [data, setData] = useState<FlavorsType[] | null>([
         {
             title: "Mongolian Ramen",
@@ -90,6 +90,11 @@ export const FlavorTable = () => {
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={[styles.btn, { marginLeft: 10 }]}
+                                        onPress={() =>
+                                            setShowModal(
+                                                (prev: boolean) => !prev
+                                            )
+                                        }
                                     >
                                         <Text>Update</Text>
                                     </TouchableOpacity>
