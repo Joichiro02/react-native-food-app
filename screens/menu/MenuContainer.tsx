@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { TableContent } from "../../components/table/Table";
+import { MenuTable } from "../../components/table/MenuTable";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 
@@ -19,7 +19,7 @@ export default function MenuContainer({
                     </TouchableOpacity>
                 </View>
             </View>
-            <TableContent />
+            <MenuTable />
         </View>
     );
 }
@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         paddingVertical: 5,
-        // paddingHorizontal: 20,
     },
     contentHeader: {
         justifyContent: "space-between",
